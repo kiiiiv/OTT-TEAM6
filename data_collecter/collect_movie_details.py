@@ -1,7 +1,7 @@
-from set_up import *
+from data_collecter.set_up import *
 
 def list_to_str(lst, key="name"):
-    return ", ".join([item.get(key, "") for item in lst]) if lst else ""
+    return ", ".join([str(item.get(key, "")) for item in lst]) if lst else ""
 
 def fetch_movie_details(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}"
@@ -17,11 +17,14 @@ def fetch_movie_details(movie_id):
         response = session.get(url, params=params, headers=HEADERS, timeout=10)
         response.raise_for_status() # 4xx, 5xx 에러 발생 시 예외 처리
         data = response.json()
+
     except Exception as e:
         print(f"Error fetching details for {movie_id}: {e}")
         return None
 
-    # 데이터 추출 로직 시작
+    genres_data = data.get("genres", [])
+    genre_ids = list_to_str(genres_data, key="id")
+
     keywords_block = data.get("keywords", {})
     if isinstance(keywords_block, dict):
         keywords_list = [k.get("name") for k in keywords_block.get("keywords", [])]
@@ -98,7 +101,8 @@ def fetch_movie_details(movie_id):
         "popularity": data.get("popularity"),
         # 세부 정보
         ## 장르
-        "genres": list_to_str(data.get("genres", [])),
+        "genres": list_to_str(genres_data),
+        "genre_ids": genre_ids,
         ## 키워드
         "keywords": ", ".join(keywords_list),
         # 제작 참여자
