@@ -1,7 +1,3 @@
-from tqdm import tqdm
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from data_collecter.set_up import *
 
 def generate_date_periods(start_date, end_date, months=1):

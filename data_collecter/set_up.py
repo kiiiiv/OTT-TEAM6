@@ -3,6 +3,10 @@ from urllib3.util.retry import Retry
 import requests
 from dotenv import load_dotenv
 import os
+from tqdm import tqdm
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HEADERS = {"accept": "application/json"}
 
