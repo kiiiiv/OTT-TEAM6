@@ -1,4 +1,5 @@
-VERSION = "1.0.0"
+__author__ = "김인표"
+__version__ = "1.0.0"
 
 # 준비
 from file_collecter.tmdb_data_collecter.set_up import *
