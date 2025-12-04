@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# 환경 변수 파일
+.env
+
+# 대용량 데이터 무시
+수집 파일/
+작업중/
+최종 데이터셋/
+OTT-TEAM6/
+
+# 하위 경로의 data 폴더 무시
+*/data/
+*/notebooks/
+
+# 파일 확장자 무시
+*.csv
+*.parquet
+*.zip
+*.ipynb
+*.json
+
+# Python 캐시
+__pycache__/
+*.pyc
