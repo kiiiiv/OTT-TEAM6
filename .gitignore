@@ -1,2 +1,3 @@
 *.csv
 .env
+!tv series_seasons_2016_2025.ipynb
