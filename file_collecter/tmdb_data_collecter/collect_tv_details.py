@@ -76,7 +76,7 @@ def fetch_tv_details(tv_id):
     record = {
         # ID
         "id": data.get("id"),
-        "type": "movie",
+        "type": "tv_series",
         "imdb_id": data.get("imdb_id"),
         # 포스터
         "poster_path": data.get("poster_path"),

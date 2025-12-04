@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 start_date = '2005-01-01'
-end_date = date.today().strftime("%Y-%m-%d")
+end_date = '2025-11-30'
 
 if __name__ == "__main__":
     total_start = time.time()
